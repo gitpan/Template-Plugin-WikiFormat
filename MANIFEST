@@ -1,0 +1,8 @@
+MANIFEST
+README
+LICENSE
+Changes
+Makefile.PL
+lib/Template/Plugin/WikiFormat.pm
+t/001_filter.t
+META.yml                                 Module meta-data (added by MakeMaker)

@@ -1,0 +1,7 @@
+Revision history for Perl module Template::Plugin::WikiFormat
+
+0.01 Sun May 18 11:02:37 2008
+    - original version; created by ExtUtils::ModuleMaker 0.51
+      Pass params to Text::Wikiformat as tags or options.
+      Basic tests using Template::Test
+
