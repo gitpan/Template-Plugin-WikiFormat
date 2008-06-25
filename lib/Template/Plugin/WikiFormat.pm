@@ -5,7 +5,7 @@ use warnings;
 use base 'Template::Plugin::Filter';
 use Text::WikiFormat;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 NAME
 
@@ -27,7 +27,10 @@ Parameters may be passed in through the USE directive, e.g.
   [% USE WikiFormat prefix = "http://www.mysite.com/?page=" %]
 
 This provides the 4 options supported by L<Text::WikiFormat>, i.e.
-C<prefix, extended, implicit_links, absolute_links>. Anything else passed
+C<prefix, extended, implicit_links, absolute_links>, and the special
+option global_replace, which takes an array of arrays of from and to
+strings. The output from Text::WikiFormat is post processed by replacing
+each from regexp with the to regexp. Anything else passed
 in is interpreted as a tag (see the Gory Details section).
 
 =head2 filter
@@ -37,27 +40,38 @@ passed in through the context. See L<Template::Plugin::Filter>.
 
 =cut
 
-
 sub filter {
-    my ($self,$text) = @_;
+    my ( $self, $text ) = @_;
 
-	my $conf = $self->{_CONFIG};
-	$conf ||= {};
-	my %tags = %$conf;
-	my %opts;
-	my %default = (
-		prefix => '',
-		extended => 0,
-		implicit_links => 1,
-		absolute_links => 0,
-		);
-	for (keys %default) {
-		$opts{$_} = $tags{$_} || $default{$_};
-		delete $tags{$_};
-	}
-	Text::WikiFormat::format($text, \%tags, \%opts);
+    my $conf = $self->{_CONFIG};
+    $conf ||= {};
+    my %tags = %$conf;
+    my %opts;
+    my %default = (
+        prefix         => '',
+        extended       => 0,
+        implicit_links => 1,
+        absolute_links => 0,
+    );
+    for ( keys %default ) {
+        $opts{$_} = $tags{$_} || $default{$_};
+        delete $tags{$_};
+    }
+    my $replace;
+    if ( exists $tags{global_replace} ) {
+        $replace = $tags{global_replace};
+        delete $tags{global_replace};
+    }
+
+    my $output = Text::WikiFormat::format( $text, \%tags, \%opts );
+
+    for my $rep (@$replace) {
+        my ( $from, $to ) = @$rep;
+        eval("\$output =~ s($from)($to)sg");
+    }
+    return $output;
 }
-	
+
 =head1 BUGS
 
 Please use http://rt.cpan.org for reporting any bugs.
@@ -87,7 +101,7 @@ L<Text::WikiFormat>
 
 #################### main pod documentation end ###################
 
-
 1;
+
 # The preceding line will help the module return a true value
 

@@ -1,11 +1,11 @@
 --- #YAML:1.0
 name:                Template-Plugin-WikiFormat
-version:             0.02
+version:             0.03
 abstract:            TT wrapper for Text::WikiFormat
 license:             perl
 author:              
     - Ivor Williams (ivorw@cpan.org)
-generated_by:        ExtUtils::MakeMaker version 6.44
+generated_by:        ExtUtils::MakeMaker version 6.42
 distribution_type:   module
 requires:     
     Template:                      2

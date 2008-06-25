@@ -7,3 +7,6 @@ Revision history for Perl module Template::Plugin::WikiFormat
 
 0.02 Sun May 18 21:47:27 2008
     - Sort out Makefile.PL, dependencies etc.
+
+0.03 Wed Jun 25 15:57:23 2008
+    - Add global_replace option.
