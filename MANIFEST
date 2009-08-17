@@ -1,10 +1,13 @@
-MANIFEST
-README
-LICENSE
 Changes
-Makefile.PL
 lib/Template/Plugin/WikiFormat.pm
-t/001_filter.t
-t/pod.t
-t/pod_coverage.t
-META.yml                                 Module meta-data (added by MakeMaker)
+LICENSE
+Makefile.PL
+MANIFEST
+META.yml			Module meta-data (added by MakeMaker)
+README
+t/01load.t
+t/10filter.t
+t/90podtest.t
+t/91podcover.t
+t/94metatest.t
+t/95changedate.t

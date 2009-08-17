@@ -2,10 +2,9 @@ package Template::Plugin::WikiFormat;
 use strict;
 use warnings;
 
-use base 'Template::Plugin::Filter';
-use Text::WikiFormat;
+our $VERSION = '0.04';
 
-our $VERSION = '0.03';
+#----------------------------------------------------------------------------
 
 =head1 NAME
 
@@ -27,11 +26,11 @@ Parameters may be passed in through the USE directive, e.g.
   [% USE WikiFormat prefix = "http://www.mysite.com/?page=" %]
 
 This provides the 4 options supported by L<Text::WikiFormat>, i.e.
-C<prefix, extended, implicit_links, absolute_links>, and the special
-option global_replace, which takes an array of arrays of from and to
-strings. The output from Text::WikiFormat is post processed by replacing
-each from regexp with the to regexp. Anything else passed
-in is interpreted as a tag (see the Gory Details section).
+C<prefix, extended, implicit_links, absolute_links>, and the special option 
+global_replace, which takes an array of arrays of from and to strings. The 
+output from Text::WikiFormat is post processed by replacing each from regexp 
+with the to regexp. Anything else passed in is interpreted as a tag (see the 
+Gory Details section).
 
 =head2 filter
 
@@ -39,6 +38,21 @@ Accepts the wiki text to be rendered, and context. The tags and options are
 passed in through the context. See L<Template::Plugin::Filter>.
 
 =cut
+
+#----------------------------------------------------------------------------
+
+#############################################################################
+#Library Modules															#
+#############################################################################
+
+use base 'Template::Plugin::Filter';
+use Text::WikiFormat;
+
+#----------------------------------------------------------------------------
+
+#############################################################################
+#Interface Methods   														#
+#############################################################################
 
 sub filter {
     my ( $self, $text ) = @_;
@@ -72,36 +86,42 @@ sub filter {
     return $output;
 }
 
-=head1 BUGS
+1;
 
-Please use http://rt.cpan.org for reporting any bugs.
+__END__
 
-
-=head1 AUTHOR
-
-    Ivor Williams
-    CPAN ID: IVORW
-    spamless@nowhere.com
-    .
-
-=head1 COPYRIGHT
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
-
+#----------------------------------------------------------------------------
 
 =head1 SEE ALSO
 
 L<Text::WikiFormat>
 
+=head1 BUGS, PATCHES & FIXES
+
+There are no known bugs at the time of this release. However, if you spot a
+bug or are experiencing difficulties that are not explained within the POD
+documentation, please send an email to barbie@cpan.org or submit a bug to the
+RT system (see link below). However, it would help greatly if you are able to 
+pinpoint problems or even supply a patch.
+
+http://rt.cpan.org/Public/Dist/Display.html?Name=Template-Plugin-WikiFormat
+
+Fixes are dependant upon their severity and my availablity. Should a fix not
+be forthcoming, please feel free to (politely) remind me.
+
+=head1 AUTHOR
+
+  Original Author: Ivor Williams (RIP)          2008-2009
+  Current Maintainer: Barbie <barbie@cpan.org>  2009
+
+=head1 COPYRIGHT AND LICENSE
+
+  Copyright (C) 2008-2009 Ivor Williams
+  Copyright (C) 2009      Barbie
+
+This distribution is free software; you may redistribute it and/or modify it 
+under the same terms as Perl itself. The full text of the license can be 
+found in the LICENSE file included with this distribution.
+
 =cut
-
-#################### main pod documentation end ###################
-
-1;
-
-# The preceding line will help the module return a true value
 

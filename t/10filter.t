@@ -1,8 +1,8 @@
-#!/usr/bin/perl
-
+#!/usr/bin/perl -w
 use strict;
-use Template::Test;
+
 use Text::WikiFormat;
+use Template::Test;     # part of Template::Toolkit
 
 test_expect(\*DATA);
 
