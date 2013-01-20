@@ -1,29 +1,33 @@
 --- #YAML:1.0
-name:                Template-Plugin-WikiFormat
-version:             0.04
-abstract:            TT wrapper for Text::WikiFormat
-distribution_type:   module
-license:             perl
+name:                 Template-Plugin-WikiFormat
+version:              0.05
+abstract:             TT wrapper for Text::WikiFormat
 author:
-    - Barbie (barbie@cpan.org)
+  - Barbie <barbie@cpan.org>
+
+license:              artistic_2
+distribution_type:    module
+installdirs:          site
 
 requires:
+  perl:                     5.006
   Template:                 2
   Template::Plugin::Filter: 0
   Text::WikiFormat:         0.75
 recommends:
-  Test::More:               0.45
+  Test::CPAN::Meta:         0
+  Test::CPAN::Meta::JSON:   0
   Test::Pod:                1.00
   Test::Pod::Coverage:      0.08
-  Test::CPAN::Meta:         0.12
 build_requires:
-  Test::More:               0.45
+  IO::File:                 0
   Template::Test:           0
+  Test::More:               0.70
 
 provides:
   Template::Plugin::WikiFormat:
     file:     lib/Template/Plugin/WikiFormat.pm
-    version:  0.04
+    version:  0.05
 no_index:
   directory:
     - t

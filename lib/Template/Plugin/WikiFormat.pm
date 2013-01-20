@@ -2,7 +2,7 @@ package Template::Plugin::WikiFormat;
 use strict;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 #----------------------------------------------------------------------------
 
@@ -106,22 +106,21 @@ pinpoint problems or even supply a patch.
 
 http://rt.cpan.org/Public/Dist/Display.html?Name=Template-Plugin-WikiFormat
 
-Fixes are dependant upon their severity and my availablity. Should a fix not
+Fixes are dependent upon their severity and my availability. Should a fix not
 be forthcoming, please feel free to (politely) remind me.
 
 =head1 AUTHOR
 
   Original Author: Ivor Williams (RIP)          2008-2009
-  Current Maintainer: Barbie <barbie@cpan.org>  2009
+  Current Maintainer: Barbie <barbie@cpan.org>  2009-2013
 
 =head1 COPYRIGHT AND LICENSE
 
   Copyright (C) 2008-2009 Ivor Williams
-  Copyright (C) 2009      Barbie
+  Copyright (C) 2009-2013 Barbie
 
-This distribution is free software; you may redistribute it and/or modify it 
-under the same terms as Perl itself. The full text of the license can be 
-found in the LICENSE file included with this distribution.
+This distribution is free software; you can redistribute it and/or
+modify it under the Artistic Licence v2.
 
 =cut
 
