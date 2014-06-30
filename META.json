@@ -1,6 +1,6 @@
 {
     "name": "Template-Plugin-WikiFormat",
-    "version": "0.05",
+    "version": "0.06",
     "abstract": "TT wrapper for Text::WikiFormat",
     "author": ["Barbie <barbie@cpan.org>"],
 
@@ -22,14 +22,14 @@
             "requires" : {
                 "perl": "5.006",
                 "Template": "2",
-                "Template::Plugin::Filter": "0",
+                "Template::Plugin::Filter": "2",
                 "Text::WikiFormat": "0.75"
             }
         },
         "test" : {
             "requires": {
                 "IO::File": "0",
-                "Template::Test": "0",
+                "Template::Test": "2",
                 "Test::More": "0.70"
             },
             "recommends": {
@@ -44,7 +44,7 @@
     "provides": {
         "Template::Plugin::WikiFormat": {
             "file": "lib/Template/Plugin/WikiFormat.pm",
-            "version": "0.05"
+            "version": "0.06"
         }
     },
     "no_index": {
@@ -52,7 +52,12 @@
     },
 
     "resources": {
-        "license": "http://dev.perl.org/licenses/",
-        "bugtracker": { "web": "http://rt.cpan.org/Public/Dist/Display.html?Name=Template-Plugin-WikiFormat" }
+        "license": "http://www.perlfoundation.org/artistic_license_2_0",
+        "bugtracker": { "web": "http://rt.cpan.org/Public/Dist/Display.html?Name=Template-Plugin-WikiFormat" },
+        "repository": {
+            "url": "git://github.com/barbie/template-plugin-wikiformat.git",
+            "web": "http://github.com/barbie/template-plugin-wikiformat",
+            "type": "git"
+        }
     }
 }
