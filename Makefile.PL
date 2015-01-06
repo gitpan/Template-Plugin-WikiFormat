@@ -8,7 +8,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     AUTHOR              => 'Barbie <barbie@cpan.org>',
-    NAME                => 'Template-Plugin-WikiFormat',
+    NAME                => 'Template::Plugin::WikiFormat',
     VERSION_FROM        => 'lib/Template/Plugin/WikiFormat.pm',
     ABSTRACT            => 'TT wrapper for Text::WikiFormat',
     NO_META             => 1,
